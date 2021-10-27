@@ -1,13 +1,32 @@
-how to
-======
-0. download your messages in low quality, json format from https://www.facebook.com/dyi
+# how to
+0. download your messages in low quality, json format ( https://www.facebook.com/dyi )
 1. install nodejs and python
 2. create a virtualenv and activate it
-    - python3 -m venv
-    - . venv/bin/activate
+    ```
+    python3 -m venv
+    . venv/bin/activate
+    ```
 3. run `pip install -r requirements.txt`
-4. create a folder called ts
+4. delete images/stickers/video they're useless
+    `find . | egrep '\.(jpg|png|gif|mp4)$' | xargs rm`
+6. create a folder called ts
+7. run `find . | grep json | node people.js '<your fb display name>'`
+8. if that doesn't work, run `find . -not -path "./venv/*" | egrep '\.json$' | xargs node people.js '<your fb display name>'`
+9. run `python analysis-culm.py ts/*` (or pick only some particular files)
+10. try the other python scripts
 
-5. run `find . | grep json | node people.js '<your fb name>'`
-6. run `python analysis-culm.py ts/*` (or pick only some particular files)
-7. try the other python scripts
+## analysis time
+- `find . -size 500k | xargs python analysis-culm.py`
+- `-size +$((500*1024))c -size -$((1024*1024))c` == `-size +500k -size -1M`
+- `find ts -size +1M | xargs python analysis.py`
+
+## scripts
+- analysis-average.py `outputs a running average like a wam calculator`
+- analysis-culm.py `cumulative graph, keeps adding onto prev day`
+- analysis-total.py
+- analysis.py `day by day`
+
+## more info
+- DM's only
+- _me means sent
+- _not means received
