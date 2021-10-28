@@ -3,7 +3,7 @@
 1. install nodejs and python
 2. create a virtualenv and activate it
     ```
-    python3 -m venv
+    python3 -m venv venv
     . venv/bin/activate
     ```
 3. run `pip install -r requirements.txt`
