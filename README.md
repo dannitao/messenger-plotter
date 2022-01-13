@@ -1,5 +1,5 @@
 # how to
-0. download your messages in low quality, json format ( https://www.facebook.com/dyi )
+0. download your messages in low quality, json format ( https://www.facebook.com/dyi ), and save them into a single folder "facebook-messages" (make sure no sub-folders' names have a space them)
 1. install nodejs and python
 2. create a virtualenv and activate it
     ```
@@ -7,7 +7,8 @@
     . venv/bin/activate
     ```
 3. run `pip install -r requirements.txt`
-4. delete images/stickers/video they're useless
+4. delete images/stickers/video/files they're useless
+    `find ./facebook-messages -type f -not -name '*.json' -delete`
     `find . | egrep '\.(jpg|png|gif|mp4)$' | xargs rm`
 6. create a folder called ts
 7. run `find . | grep json | node people.js '<your fb display name>'`
