@@ -47,3 +47,4 @@ for fn in sys.argv[1:]:
 plt.legend()
 
 plt.show()
+plt.savefig('image.png')

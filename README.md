@@ -16,6 +16,9 @@
 9. run `python analysis-culm.py ts/*` (or pick only some particular files)
 10. try the other python scripts
 
+pip install matplotlib
+pip install numpy
+
 ## analysis time
 - `find . -size 500k | xargs python analysis-culm.py`
 - `-size +$((500*1024))c -size -$((1024*1024))c` == `-size +500k -size -1M`
